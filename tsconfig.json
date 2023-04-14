@@ -1,0 +1,25 @@
+{
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "target": "es2016",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "types": [],
+    "paths": {},
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true
+  }
+}
