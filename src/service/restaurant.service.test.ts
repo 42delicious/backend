@@ -18,10 +18,10 @@ describe('단건 조회', () => {
     const id = 100;
 
     // when
-    const result = await getRestaurantById(id);
+    const command = () => getRestaurantById(id);
 
     //then
-    expect(result).toThrowError();
+    expect(command).rejects.toThrowError();
   });
 });
 
