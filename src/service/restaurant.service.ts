@@ -14,7 +14,7 @@ export const getRestaurantById = async (id: number) => {
     }
     return result;
   } catch(error) {
-    throw new Error;
+    console.error("not exist")
   }
 };
 
