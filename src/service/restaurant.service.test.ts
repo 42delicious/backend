@@ -10,7 +10,7 @@ describe('단건 조회', () => {
     const result = await getRestaurantById(id);
 
     // then
-    expect(result?.name).toBe('김밥지옥');
+    expect(result?.name).toBe('김밥천국');
   });
 
   it('찾는 id가 없을 때 Error를 던져야함.', async () => {

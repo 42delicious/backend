@@ -32,6 +32,6 @@ export const findRestaurantById = async (id: number) => {
   return restaurants.find((restaurant) => restaurant.id === id);
 };
 
-export const getAllRestaurants = async () => {
+export const getAllRestaurants1 = async () => {
   return restaurants;
 };
