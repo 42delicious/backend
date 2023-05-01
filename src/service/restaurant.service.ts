@@ -3,9 +3,6 @@ import { pool, init } from '../db/pg-pool'
 
 
 export const getRestaurantById = async (id: number) => {
-
-  const client = await pool.connect();
-
   init();
   try { 
     const result = await findRestaurantById(id);
