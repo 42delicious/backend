@@ -8,7 +8,7 @@ export const getRestaurantById = async (id: number) => {
   return result;
 };
 
-export const getAllRestaurants = async () => {
+export const getAllRestaurants = async (location?: string | null) => {
   const restaurants = await getAllRestaurants1();
 
   return restaurants;
