@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { getAllRestaurants, getRestaurantById } from 'src/service/restaurant.service';
+import { getAllRestaurants, getRestaurantById } from '../service/restaurant.service';
 
 describe('단건 조회', () => {
   test('id가 0일 때, 이름이 맥도날드 서초뱅뱅점이어야함.', async () => {
@@ -27,7 +27,7 @@ describe('단건 조회', () => {
       price: expect.any(String),
       category: expect.any(String),
       summary: expect.any(String),
-      location: expect.any(String),
+      cluster: expect.any(String),
       latitude: expect.any(Number),
       longitude: expect.any(Number),
       detail: expect.any(String),
@@ -58,7 +58,7 @@ describe('전체 조회', () => {
     expect(result).toHaveLength(expected);
   });
 
-  test('전체 조회 시, id, name, price, category, summary, location만 조회되어야함.', async () => {
+  test('전체 조회 시, id, name, price, category, summary, cluster만 조회되어야함.', async () => {
     // given
     const expected = {
       id: expect.any(Number),
@@ -66,7 +66,7 @@ describe('전체 조회', () => {
       price: expect.any(String),
       category: expect.any(String),
       summary: expect.any(String),
-      location: expect.any(String),
+      cluster: expect.any(String),
     };
 
     // when
@@ -79,15 +79,15 @@ describe('전체 조회', () => {
     expect(results[0]).not.toHaveProperty('detail');
   });
 
-  test('전체 조회 시, location이 있으면 해당 location의 식당만 조회되어야함.', async () => {
+  test('전체 조회 시, cluster이 있으면 해당 cluster의 식당만 조회되어야함.', async () => {
     // given
-    const location = 'gaepo';
+    const cluster = 'gaepo';
 
     // when
-    const results = await getAllRestaurants(location);
+    const results = await getAllRestaurants(cluster);
 
     // then
     expect(results).toHaveLength(2);
-    expect(results[0].location).toBe(location);
+    expect(results[0].cluster).toBe(cluster);
   });
 });
