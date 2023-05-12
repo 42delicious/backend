@@ -9,7 +9,7 @@ export const getRestaurantById = async (id: number) => {
 };
 
 export const getAllRestaurants = async (location?: string | null) => {
-  const restaurants = await getAllRestaurants1();
+  const restaurants = await findRestaurantAll();
 
   return restaurants;
-};
+}
