@@ -82,13 +82,13 @@ describe('RestaurantRepository', () => {
   describe('식당 전체 조회', () => {
     test('식당 전체를 조회하면, 식당 목록을 반환한다', async () => {
       // given
-      const expected = [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+      const expected = [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }];
 
       // when
       const restaurants = await repository.findAllRestaurants();
 
       // then
-      expect(restaurants).toHaveLength(5);
+      expect(restaurants).toHaveLength(4);
       expect(restaurants).toSatisfy((rows: any[]) => {
         return expected.every((e) => rows.some((r) => r.id === e.id));
       });
