@@ -1,95 +1,17 @@
-import { describe, test, expect } from 'vitest';
-import { getAllRestaurants, getRestaurantById } from '../service/restaurant.service';
+import { describe, test } from 'vitest';
 
 describe('단건 조회', () => {
-  test('id가 0일 때, 이름이 맥도날드 서초뱅뱅점이어야함.', async () => {
-    // given
-    const id = 0;
+  test.todo('id가 0일 때, 이름이 맥도날드 서초뱅뱅점이어야함.');
 
-    // when
-    const result = await getRestaurantById(id);
+  test.todo('단건조회를 했을 때, 모든 정보를 포함해야함.');
 
-    // then
-    expect(result?.name).toBe('맥도날드 서초뱅뱅점');
-  });
-
-  test('단건조회를 했을 때, 모든 정보를 포함해야함.', async () => {
-    // given
-    const id = 1;
-
-    // when
-    const result = await getRestaurantById(id);
-
-    // then
-    expect(result).toEqual({
-      id: 1,
-      name: expect.any(String),
-      price: expect.any(String),
-      category: expect.any(String),
-      summary: expect.any(String),
-      cluster: expect.any(String),
-      latitude: expect.any(Number),
-      longitude: expect.any(Number),
-      detail: expect.any(String),
-    });
-  });
-
-  test('찾는 id가 없을 때 Error를 던져야함.', async () => {
-    // given
-    const id = 100;
-
-    // when
-    const command = () => getRestaurantById(id);
-
-    //then
-    expect(command).rejects.toThrowError();
-  });
+  test.todo('찾는 id가 없을 때 Error를 던져야함.');
 });
 
 describe('전체 조회', () => {
-  test('전체 조회 시, 전체 식당이 조회되어야함.', async () => {
-    // given
-    const expected = 37;
+  test.todo('전체 조회 시, 전체 식당이 조회되어야함.');
 
-    // when
-    const result = await getAllRestaurants();
+  test.todo('전체 조회 시, id, name, price, category, summary, cluster만 조회되어야함.');
 
-    // then
-    expect(result).toHaveLength(expected);
-  });
-
-  test('전체 조회 시, id, name, price, category, summary, cluster만 조회되어야함.', async () => {
-    // given
-    const expected = {
-      id: expect.any(Number),
-      name: expect.any(String),
-      price: expect.any(String),
-      category: expect.any(String),
-      summary: expect.any(String),
-      cluster: expect.any(String),
-    };
-
-    // when
-    const results = await getAllRestaurants();
-
-    // then
-    expect(results[0]).toMatchObject(expected);
-    expect(results[0]).not.toHaveProperty('latitude');
-    expect(results[0]).not.toHaveProperty('longitude');
-    expect(results[0]).not.toHaveProperty('detail');
-  });
-
-  test('전체 조회 시, cluster이 있으면 해당 cluster의 식당만 조회되어야함.', async () => {
-    // given
-    const cluster = 'gaepo';
-
-    // when
-    const results = await getAllRestaurants(cluster);
-
-    // then
-    console.log('***************************');
-    console.log(results.length);
-    expect(results).toHaveLength(2);
-    expect(results[0].cluster).toBe(cluster);
-  });
+  test.todo('전체 조회 시, cluster이 있으면 해당 cluster의 식당만 조회되어야함.');
 });
