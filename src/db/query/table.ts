@@ -6,11 +6,11 @@ CREATE TABLE
     price varchar(20),
     category varchar(20),
     summary varchar(255),
-    location varchar(20),
+    cluster varchar(20),
     longitude float,
     latitude float,
     detail text,
     "createdAt" timestamp NOT NULL default NOW(),
-    "updatedAt" timestamp NOT NULL default NOW(),
+    "updatedAt" timestamp NOT NULL default NOW()
   );
-`
+`;
