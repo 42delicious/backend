@@ -1,6 +1,7 @@
-import { RestaurantRepositoryMock } from '../db/query/mock/restaurant';
+import { RestaurantRepositoryImpl } from 'src/db/query/restaurant';
+import { pool } from 'src/db/pg-pool';
 
-const repository = new RestaurantRepositoryMock();
+const repository = new RestaurantRepositoryImpl(pool);
 
 export const getRestaurantById = async (id: number) => {
   const restaurants = await repository.findRestaurantById(id);
