@@ -88,6 +88,7 @@ describe('RestaurantRepository', () => {
       const restaurants = await repository.findAllRestaurants();
 
       // then
+      console.log(`\n\n\nsrc/db/query/test/restaurant.repo.test.ts\n${restaurants.length}\n${JSON.stringify(restaurants)}\n\n\n`)
       expect(restaurants).toHaveLength(4);
       expect(restaurants).toSatisfy((rows: any[]) => {
         return expected.every((e) => rows.some((r) => r.id === e.id));

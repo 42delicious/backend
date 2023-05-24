@@ -87,6 +87,8 @@ describe('전체 조회', () => {
     const results = await getAllRestaurants(cluster);
 
     // then
+    console.log('***************************');
+    console.log(results.length);
     expect(results).toHaveLength(2);
     expect(results[0].cluster).toBe(cluster);
   });

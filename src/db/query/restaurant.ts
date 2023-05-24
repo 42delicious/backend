@@ -10,12 +10,12 @@ export class RestaurantRepositoryImpl implements RestaurantRepository {
   }
 
   public async findAllRestaurants(): Promise<any[]> {
-    //TODO
-    return [];
+    const { rows } = await this.pool.query (`SELECT id, name, price, category, summary, cluster FROM restaurants`)
+    return rows;
   }
 
   public async findAllRestaurantsByCluster(cluster: string): Promise<any[]> {
-    //TODO
-    return [];
+    const { rows } = await this.pool.query(`SELECT id, name, price, category, summary, cluster FROM restaurants WHERE cluster = '${cluster}'`)
+    return rows;
   }
 }
