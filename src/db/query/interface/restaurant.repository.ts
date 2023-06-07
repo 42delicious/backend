@@ -12,7 +12,7 @@ export interface RestaurantRepository {
   findAllRestaurantsByCluster(cluster: string): Promise<any[]>;
 }
 
-export class RestaurantRepositoryMock implements RestaurantRepository {
+export class RestaurantDatabase implements RestaurantRepository {
   constructor() {}
 
   public async findRestaurantById(id: number) {
@@ -27,5 +27,3 @@ export class RestaurantRepositoryMock implements RestaurantRepository {
     return restaurants.filter((restaurant) => restaurant.cluster === cluster);
   }
 }
-
-const restaurants = data;
