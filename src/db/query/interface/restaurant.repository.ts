@@ -20,7 +20,11 @@ export interface RestaurantRepository {
 export class RestaurantDatabase implements RestaurantRepository {
 
   public async findRestaurantById(id: number) {
-    return restaurants.find((restaurant) => restaurant.id === id);
+    await client.connect();
+    const result = await client.query(`SELECT * FROM restaurants WHERE id = ${id}`);
+    await client.end();
+    console.log(result);
+    return result.rows[0];
   }
 
   public async findAllRestaurants() {
